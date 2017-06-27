@@ -1,0 +1,77 @@
+<!doctype html>
+<html>
+  <head>
+    <title>bloombox-merch demo</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1, user-scalable=yes">
+    <script src="../../webcomponentsjs/webcomponents-lite.js"></script>
+
+    <link rel="import" href="../../iron-demo-helpers/demo-pages-shared-styles.html">
+    <link rel="import" href="../../iron-demo-helpers/demo-snippet.html">
+
+    <link rel="import" href="../bloombox-merch.html">
+
+    <style is="custom-style" include="demo-pages-shared-styles">
+      .vertical-section-container.centered {
+        max-width: 700px !important;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="vertical-section-container centered">
+      <h3>Zerostate Example</h3>
+      <demo-snippet>
+        <template>
+          <bloombox-merch zerostate></bloombox-merch>
+        </template>
+      </demo-snippet>
+    </div>
+
+    <div class="vertical-section-container centered">
+      <h3>Data Example (normal display mode)</h3>
+      <demo-snippet>
+        <template>
+          <bloombox-merch
+            key="sample1"
+            environment="sandbox"
+            display-mode="normal"
+            type="Clothing"
+            brand="Abatin"
+            name="Blackout Shirt"
+            photos='["test.jpg"]'
+            description="Cool Blackout Shirt"
+            pricing='{"unit": {"available": true, "value": 5}}'
+            sale="20"
+            bogo="true"
+            visible="true"
+            premium="true"
+            partner="mm"></bloombox-merch>
+        </template>
+      </demo-snippet>
+    </div>
+
+    <div class="vertical-section-container centered">
+      <h3>Data Example (slim display mode)</h3>
+      <demo-snippet>
+        <template>
+          <bloombox-merch
+            key="sample2"
+            environment="sandbox"
+            display-mode="normal"
+            type="Clothing"
+            brand="Abatin"
+            name="Blackout Shirt"
+            photos='["test.jpg"]'
+            description="Cool Blackout Shirt"
+            pricing='{"unit": {"available": true, "value": 5}}'
+            sale="20"
+            bogo="true"
+            visible="true"
+            premium="true"
+            partner="mm"></bloombox-merch>
+        </template>
+      </demo-snippet>
+    </div>
+
+  </body>
+</html>
