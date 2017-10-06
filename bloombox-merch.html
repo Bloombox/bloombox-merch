@@ -75,6 +75,9 @@
             <!-- Stock Flags -->
             <div class="stock-flags merch-info row">
               <div class="base-flags">
+                <!-- Featured -->
+                <iron-label class="featured-label" hidden$="[[!featured]]"><span>Featured</span></iron-label>
+
                 <!-- MPMH -->
                 <iron-label class="premium-label" hidden$="[[!premium]]"><span>[[_renderPremiumLabel(partner)]]</span></iron-label>
 
@@ -163,6 +166,10 @@
             <div class="row-label">
               <span class="row-label-value">Inventory</span>
             </div><!-- end div.row-label -->
+
+            <div class="featured-toggle-option">
+              <paper-checkbox id="featuredToggle" checked="{{featured}}" tabindex="6" class="form-item item-featured-toggle" noink>Featured</paper-checkbox>
+            </div><!-- end .featured-toggle-option -->
 
             <div class="premium-toggle-option">
               <paper-checkbox id="premiumToggle" checked="{{premium}}" tabindex="4" class="form-item premium-toggle" noink>[[_renderPremiumLabel(partner)]]</paper-checkbox>
@@ -336,6 +343,13 @@
           payload.flags = payload.flags || {};
           payload.flags.lastchance = false;
         }
+        if (this.get("featured") != null && this.get("featured") != undefined) {
+          payload.flags = payload.flags || {};
+          payload.flags.featured = this.get("featured");
+        } else {
+          payload.flags = payload.flags || {};
+          payload.flags.featured = false;
+        }
         if (this.get("description") !== undefined && this.get("description") !== null &&
             this.get("description").length > 0) {
           payload.description = this.get("description");
@@ -394,6 +408,13 @@
         } else {
           payload.flags = payload.flags || {};
           payload.flags.lastchance = false;
+        }
+        if (this.$$("#featuredToggle").checked) {
+          payload.flags = payload.flags || {};
+          payload.flags.featured = true;
+        } else {
+          payload.flags = payload.flags || {};
+          payload.flags.featured = false;
         }
         if (this.$$("#saleToggle").checked) {
           payload.flags = payload.flags || {};
